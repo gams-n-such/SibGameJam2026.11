@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dejukew32k5e7"]
+
+[ext_resource type="Texture2D" uid="uid://dnam1jg8jd1m1" path="res://Gameplay3D/DropShadow/shadow_decal.svg" id="1_l6ey4"]
+
+[node name="DropShadow3D" type="Node3D" unique_id=434054348]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="." unique_id=320703591]
+spring_length = 100.0
+
+[node name="Decal" type="Decal" parent="SpringArm3D" unique_id=1801808542]
+size = Vector3(1, 1, 1)
+texture_albedo = ExtResource("1_l6ey4")
+modulate = Color(0, 0, 0, 1)
+albedo_mix = 0.5

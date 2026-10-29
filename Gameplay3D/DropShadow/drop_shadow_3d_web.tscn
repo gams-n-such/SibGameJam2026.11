@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dd6lhpsgcld6q"]
+
+[ext_resource type="Script" uid="uid://du2l5cawh084y" path="res://Gameplay3D/DropShadow/drop_shadow_3d_web.gd" id="1_kgtjd"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_biaub"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0, 0, 0, 0.4509804)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tp06f"]
+material = SubResource("StandardMaterial3D_biaub")
+height = 0.1
+
+[node name="DropShadow3D" type="Node3D" unique_id=434054348]
+script = ExtResource("1_kgtjd")
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="." unique_id=1642317563]
+remote_path = NodePath("../Node/SpringArm")
+update_rotation = false
+update_scale = false
+
+[node name="Node" type="Node" parent="." unique_id=714901266]
+
+[node name="SpringArm" type="SpringArm3D" parent="Node" unique_id=1773842217]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+spring_length = 100.0
+
+[node name="ShadowMesh" type="MeshInstance3D" parent="Node/SpringArm" unique_id=1282547005]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_tp06f")

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dx0irckedxh0k"]
+
+[ext_resource type="PackedScene" uid="uid://q022o76q0rw5" path="res://Gameplay3D/Triggers/player_trigger_cube.tscn" id="1_id6em"]
+[ext_resource type="Script" uid="uid://ddooggd5xdh4o" path="res://Gameplay/Effects/teleport_effector.gd" id="2_cxwrg"]
+
+[node name="PlayerTeleporter3D" unique_id=1803791410 instance=ExtResource("1_id6em")]
+
+[node name="TeleportEffector" type="Node" parent="." index="2" unique_id=910780615]
+script = ExtResource("2_cxwrg")
+metadata/_custom_type_script = "uid://ddooggd5xdh4o"
