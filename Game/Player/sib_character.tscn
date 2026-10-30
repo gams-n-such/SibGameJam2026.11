@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://ubt5nf6yq32d"]
+
+[ext_resource type="Script" uid="uid://db6crphspdvmr" path="res://Game/Player/sib_character.gd" id="1_7hok2"]
+[ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_n3bv5"]
+[ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rfo5s"]
+[ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_buprq"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tp06f"]
+radius = 0.45
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7hok2"]
+albedo_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_o463m"]
+material = SubResource("StandardMaterial3D_7hok2")
+top_radius = 0.1
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o463m"]
+albedo_color = Color(1, 0.4509804, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_4jmrd"]
+material = SubResource("StandardMaterial3D_o463m")
+radius = 0.4
+height = 0.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3bv5"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_n3bv5"]
+material = SubResource("StandardMaterial3D_n3bv5")
+size = Vector3(0.6057129, 0.35546875, 0.16796875)
+
+[sub_resource type="Resource" id="Resource_6txj7"]
+script = ExtResource("3_rfo5s")
+
+[node name="SibCharacter" type="AnimatableBody3D" unique_id=1949232330]
+collision_layer = 2
+collision_mask = 5
+sync_to_physics = false
+script = ExtResource("1_7hok2")
+
+[node name="Collision" type="CollisionShape3D" parent="." unique_id=921843927]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("SphereShape3D_tp06f")
+
+[node name="BodyPlaceholder" type="MeshInstance3D" parent="." unique_id=957182758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("CylinderMesh_o463m")
+
+[node name="HeadPlaceholder" type="MeshInstance3D" parent="." unique_id=163869349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("SphereMesh_4jmrd")
+
+[node name="HeadPlaceholder2" type="MeshInstance3D" parent="." unique_id=353901380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.33935547)
+mesh = SubResource("BoxMesh_n3bv5")
+
+[node name="PhantomCamera3D" type="Node3D" parent="." unique_id=2131014871 node_paths=PackedStringArray("follow_target")]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 5)
+top_level = true
+script = ExtResource("2_n3bv5")
+follow_mode = 2
+follow_target = NodePath("..")
+tween_resource = SubResource("Resource_6txj7")
+follow_offset = Vector3(0, 5, 5)
+align_transform_with_view = Callable()
+align_position_with_view = Callable()
+metadata/_custom_type_script = "uid://csjccrhj5wnx7"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=2083437507]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 5)
+top_level = true
+
+[node name="PhantomCameraHost" type="Node" parent="Camera3D" unique_id=1427534235]
+process_priority = 300
+process_physics_priority = 300
+script = ExtResource("4_buprq")
+interpolation_mode = 1
+metadata/_custom_type_script = "uid://bd046eokvcnu2"
