@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://db6crphspdvmr" path="res://Game/Player/sib_character.gd" id="1_7hok2"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_n3bv5"]
+[ext_resource type="ArrayMesh" uid="uid://d1iqelm102bcu" path="res://Game/Player/Models/pumpkin-carved.obj" id="2_rfo5s"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rfo5s"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_buprq"]
 
@@ -15,21 +16,6 @@ albedo_color = Color(0.04755766, 0.047557645, 0.047557645, 1)
 material = SubResource("StandardMaterial3D_7hok2")
 top_radius = 0.1
 height = 1.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o463m"]
-albedo_color = Color(1, 0.4509804, 0, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_4jmrd"]
-material = SubResource("StandardMaterial3D_o463m")
-radius = 0.4
-height = 0.6
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n3bv5"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_n3bv5"]
-material = SubResource("StandardMaterial3D_n3bv5")
-size = Vector3(0.6057129, 0.35546875, 0.16796875)
 
 [sub_resource type="Resource" id="Resource_6txj7"]
 script = ExtResource("3_rfo5s")
@@ -48,13 +34,9 @@ shape = SubResource("SphereShape3D_tp06f")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_o463m")
 
-[node name="HeadPlaceholder" type="MeshInstance3D" parent="." unique_id=163869349]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
-mesh = SubResource("SphereMesh_4jmrd")
-
-[node name="HeadPlaceholder2" type="MeshInstance3D" parent="." unique_id=353901380]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, -0.33935547)
-mesh = SubResource("BoxMesh_n3bv5")
+[node name="Head" type="MeshInstance3D" parent="." unique_id=163869349]
+transform = Transform3D(-1.7, 0, -1.4861872e-07, 0, 1.7, 0, 1.4861872e-07, 0, -1.7, 0, 0.9756496, 0)
+mesh = ExtResource("2_rfo5s")
 
 [node name="PhantomCamera3D" type="Node3D" parent="." unique_id=2131014871 node_paths=PackedStringArray("follow_target")]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 5, 5)
