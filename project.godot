@@ -25,6 +25,7 @@ buses/default_bus_layout="uid://ct33mw21k8ao4"
 Game="*uid://cs34d64dgwg7p"
 AudioManager="*uid://dwtkc13xm1mmw"
 PhantomCameraManager="*uid://duq6jhf6unyis"
+Rhythm="*uid://crkxiypwd8kck"
 
 [debug]
 
