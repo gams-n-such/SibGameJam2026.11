@@ -3,7 +3,7 @@ extends AnimatableBody3D
 
 
 func _ready() -> void:
-	pass
+	Rhythm.start()
 
 
 func _process(delta: float) -> void:
