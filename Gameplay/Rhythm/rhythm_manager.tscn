@@ -2,11 +2,15 @@
 
 [ext_resource type="Script" uid="uid://c4m7o6n3wb27r" path="res://Gameplay/Rhythm/rhythm_manager.gd" id="1_08lwq"]
 [ext_resource type="Script" uid="uid://dos3qhffr4v0a" path="res://addons/rhythm_notifier/rhythm_notifier.gd" id="2_6j7ym"]
+[ext_resource type="Script" uid="uid://qgw4do7de2fk" path="res://Gameplay/Rhythm/rhythm_track.gd" id="2_73gko"]
+
+[sub_resource type="Resource" id="Resource_t2aj3"]
+script = ExtResource("2_73gko")
+metadata/_custom_type_script = "uid://qgw4do7de2fk"
 
 [node name="RhythmManager" type="Node" unique_id=878165228]
 script = ExtResource("1_08lwq")
-sweetspot = null
-beat_window = null
+track = SubResource("Resource_t2aj3")
 
 [node name="RhythmNotifier" type="Node" parent="." unique_id=437884312 node_paths=PackedStringArray("audio_stream_player")]
 unique_name_in_owner = true
