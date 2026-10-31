@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://ca3h660m4iob6" path="res://Gameplay3D/Interactions/interaction_sphere.tscn" id="10_y2tcx"]
 [ext_resource type="PackedScene" uid="uid://d2l25wotvmh1x" path="res://Gameplay3D/Door/test_door_3d.tscn" id="11_7eh12"]
 [ext_resource type="PackedScene" uid="uid://ubt5nf6yq32d" path="res://Game/Player/sib_character.tscn" id="12_dfghf"]
+[ext_resource type="PackedScene" uid="uid://j4f2cau57w1s" path="res://Game/Cameras/sib_camera.tscn" id="13_4jmrd"]
+[ext_resource type="Script" uid="uid://cje87y2clswlt" path="res://Game/Cameras/node_rhythm_state.gd" id="14_t2aj3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fktsr"]
 sky_top_color = Color(0.23538089, 0.5855123, 0.7892152, 1)
@@ -25,6 +27,26 @@ sky_material = SubResource("ProceduralSkyMaterial_fktsr")
 background_mode = 2
 sky = SubResource("Sky_hv080")
 reflected_light_source = 2
+
+[sub_resource type="Resource" id="Resource_k6ulc"]
+script = ExtResource("14_t2aj3")
+position = Vector3(-2, 1, -6)
+rotation = Vector3(0, -3.1415925, 0)
+
+[sub_resource type="Resource" id="Resource_bm13g"]
+script = ExtResource("14_t2aj3")
+position = Vector3(-2, 1, -3)
+rotation = Vector3(0, 1.7484555e-07, 0)
+
+[sub_resource type="Resource" id="Resource_x4ihm"]
+script = ExtResource("14_t2aj3")
+position = Vector3(2, 1, -3)
+rotation = Vector3(0, 1.5707965, 0)
+
+[sub_resource type="Resource" id="Resource_g3g77"]
+script = ExtResource("14_t2aj3")
+position = Vector3(2, 1, -6)
+rotation = Vector3(0, 1.5707965, 0)
 
 [node name="TestGym3D" type="Node3D" unique_id=637359171]
 script = ExtResource("1_hv080")
@@ -110,6 +132,12 @@ transform = Transform3D(1.1924881e-08, 0, 1, 0, 1, 0, -1, 0, 1.1924881e-08, 2.62
 text = "Door3D"
 
 [node name="SibCharacter" parent="." unique_id=2055466113 instance=ExtResource("12_dfghf")]
+
+[node name="SibCamera" parent="." unique_id=884310868 instance=ExtResource("13_4jmrd")]
+transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, 2, 1, -6)
+first_beat = 0
+starting_state_idx = null
+states = Array[ExtResource("14_t2aj3")]([SubResource("Resource_k6ulc"), SubResource("Resource_bm13g"), SubResource("Resource_x4ihm"), SubResource("Resource_g3g77")])
 
 [connection signal="body_entered" from="PlatformingPlayerSpawner/PlayerTriggerSphere" to="PlatformingPlayerSpawner" method="respawn_player" unbinds=1]
 [connection signal="body_entered" from="FloatingPlayerSpawner/PlayerTriggerSphere" to="FloatingPlayerSpawner" method="respawn_player" unbinds=1]
