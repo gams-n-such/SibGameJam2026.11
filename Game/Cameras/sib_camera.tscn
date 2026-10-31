@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://j4f2cau57w1s"]
+
+[ext_resource type="PackedScene" uid="uid://c5usj2x1nlx2k" path="res://Gameplay3D/Triggers/player_trigger_cone.tscn" id="1_pk4m3"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_c2axk"]
+size = Vector3(0.25, 0.25, 0.5)
+
+[node name="SibCamera" type="Node3D" unique_id=884310868]
+
+[node name="Pivot" type="Node3D" parent="." unique_id=393793507]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=851244445]
+mesh = SubResource("BoxMesh_c2axk")
+
+[node name="PlayerTrigger3D" parent="Pivot/MeshInstance3D" unique_id=1180047365 instance=ExtResource("1_pk4m3")]
