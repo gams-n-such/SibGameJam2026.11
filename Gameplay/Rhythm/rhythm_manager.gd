@@ -125,6 +125,7 @@ func start() -> void:
 		_on_music_started()
 	else:
 		rhythm_notifier.running = true
+		_listen_for_beats()
 
 func stop() -> void:
 	if not playing and not get_tree().paused:
