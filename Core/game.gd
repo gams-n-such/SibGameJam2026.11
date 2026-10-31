@@ -15,6 +15,12 @@ func _input(event: InputEvent) -> void:
 func toggle_mouse_cursor() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED if Input.mouse_mode != Input.MOUSE_MODE_CAPTURED else Input.MOUSE_MODE_VISIBLE
 
+#region Jam
+
+var player : SibCharacter = null
+
+#endregion
+
 #region Config
 
 @export var config : GameConfig = null

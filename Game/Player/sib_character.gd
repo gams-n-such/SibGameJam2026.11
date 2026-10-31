@@ -1,10 +1,14 @@
 class_name SibCharacter
 extends AnimatableBody3D
 
+@onready var rhythm_handler: PlayerRhythmManager = %PlayerRhythmManager
 
 func _ready() -> void:
+	Game.player = self
 	Rhythm.start()
 
+func _exit_tree() -> void:
+	Game.player = null
 
 func _process(delta: float) -> void:
 	pass

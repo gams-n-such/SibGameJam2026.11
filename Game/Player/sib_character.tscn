@@ -5,6 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://d1iqelm102bcu" path="res://Game/Player/Models/pumpkin-carved.obj" id="2_rfo5s"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rfo5s"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_buprq"]
+[ext_resource type="Script" uid="uid://d30urgsxk7met" path="res://Gameplay/Rhythm/player_rhythm_manager.gd" id="6_buprq"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tp06f"]
 radius = 0.45
@@ -60,3 +61,8 @@ process_physics_priority = 300
 script = ExtResource("4_buprq")
 interpolation_mode = 1
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
+
+[node name="PlayerRhythmManager" type="Node" parent="." unique_id=1522643418]
+unique_name_in_owner = true
+script = ExtResource("6_buprq")
+metadata/_custom_type_script = "uid://d30urgsxk7met"

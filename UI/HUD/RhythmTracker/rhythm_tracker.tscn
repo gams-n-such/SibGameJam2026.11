@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://pcvcc0l7xm8"]
+
+[ext_resource type="Script" uid="uid://cif2t6fk1pl0j" path="res://UI/HUD/RhythmTracker/rhythm_tracker.gd" id="1_1j67k"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_1j67k"]
+thickness = 5
+
+[node name="RhythmTracker" type="Control" unique_id=229736804]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_1j67k")
+
+[node name="TargetLine" type="ColorRect" parent="." unique_id=1762477691]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_top = -130.0
+offset_right = 10.0
+offset_bottom = -30.0
+grow_horizontal = 2
+color = Color(0.07058824, 0.5803922, 0.15294118, 0.5137255)
+
+[node name="BeatBar" type="Control" parent="TargetLine" unique_id=314100175]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -50.0
+offset_right = -50.0
+offset_bottom = 100.0
+grow_horizontal = 2
+
+[node name="Line" type="Panel" parent="TargetLine/BeatBar" unique_id=1422967299]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_right = 100.0
+offset_bottom = 40.00009
+grow_horizontal = 2
+rotation = 1.5707964
+theme_override_styles/panel = SubResource("StyleBoxLine_1j67k")
+
+[node name="BeatLabel" type="Label" parent="TargetLine/BeatBar" unique_id=515819522]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.0
+offset_top = -7.0
+offset_right = -2.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_constants/outline_size = 2
+text = "0"
+horizontal_alignment = 1
