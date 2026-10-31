@@ -189,3 +189,4 @@ camera_right={
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+environment/defaults/default_clear_color=Color(0.03137255, 0, 0.03137255, 1)
