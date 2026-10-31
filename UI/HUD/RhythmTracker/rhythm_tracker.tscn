@@ -54,7 +54,6 @@ rotation = 1.5707964
 theme_override_styles/panel = SubResource("StyleBoxLine_1j67k")
 
 [node name="BeatLabel" type="Label" parent="TargetLine/BeatBar" unique_id=515819522]
-visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

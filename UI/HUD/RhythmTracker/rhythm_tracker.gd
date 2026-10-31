@@ -5,7 +5,10 @@ extends Control
 @onready var beat_bar_template: Control = %BeatBar
 
 @export var queue_size : int = 16
-@export var offset_per_beat : float = 50.0
+@export var offset_per_beat : float = 70.0
+
+@export var visibility_range : float = 200.0
+@export var fade_range : float = 350.0
 
 var queue : Array[Control]
 var beats : Dictionary[Control, float]
@@ -35,6 +38,7 @@ func _process(delta: float) -> void:
 	_flush_deferred_requeues()
 	for bar in queue:
 		_update_bar_position(bar, beats[bar])
+		_update_bar_visibility(bar)
 	_unqueue_deferred_requeues()
 
 func _create_bars(num_bars : int) -> void:
@@ -55,6 +59,14 @@ func _update_bar_position(bar : Control, target_beat : float, current_beat_overr
 	if bar.position.x <= target_x:
 		requeue_deferred(bar)
 
+func _update_bar_visibility(bar : Control) -> void:
+	if bar.position.x < visibility_range:
+		bar.modulate.a = 1.0
+	elif bar.position.x > fade_range:
+		bar.modulate.a = 0.0
+	else:
+		bar.modulate.a = remap(bar.position.x, visibility_range, fade_range, 1.0, 0.0)
+
 func requeue_deferred(bar : Control) -> void:
 	if not _bars_to_requeue.has(bar):
 		_bars_to_requeue.append(bar)
@@ -71,9 +83,9 @@ func _unqueue_deferred_requeues() -> void:
 func fade_and_requeue(bar : Control) -> void:
 	queue.erase(bar)
 	var fade_tween := get_tree().create_tween()
-	fade_tween.tween_property(bar, "self_modulate", Color.TRANSPARENT, fade_duration)
+	fade_tween.tween_property(bar, "modulate", Color.TRANSPARENT, fade_duration)
 	await fade_tween.finished
-	bar.self_modulate = Color.WHITE
+	bar.modulate = Color.WHITE
 	requeue_deferred(bar)
 
 func _on_player_beat_hit(beat_num : int) -> void:
@@ -84,6 +96,6 @@ func _requeue(bar : Control, update : bool = false) -> void:
 	#print("Queueing beat %d" % last_queued_beat)
 	queue.append(bar)
 	beats.set(bar, last_queued_beat + beat_window)
-	(bar.get_node("BeatLabel") as Label).text = str(last_queued_beat)
+	#(bar.get_node("BeatLabel") as Label).text = str(last_queued_beat)
 	if update:
 		_update_bar_position(bar, beats[bar])
