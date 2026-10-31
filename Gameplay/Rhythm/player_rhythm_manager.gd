@@ -21,7 +21,7 @@ func _on_beat_ended(beat_number : int) -> void:
 		beat_skipped.emit(beat_number)
 
 func try_consume_beat() -> bool:
-	var current_beat := Rhythm.get_current_beat_number()
+	var current_beat : int = Rhythm.get_current_beat_number()
 	if Game._ignore_rhythm:
 		last_consumed_beat = current_beat
 		beat_hit.emit(last_consumed_beat)
