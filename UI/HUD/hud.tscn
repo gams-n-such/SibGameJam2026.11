@@ -27,3 +27,7 @@ horizontal_alignment = 1
 
 [node name="RhythmTracker" parent="." unique_id=229736804 instance=ExtResource("2_ing8j")]
 layout_mode = 1
+
+[node name="RhythmTracker2" parent="." unique_id=924288882 instance=ExtResource("2_ing8j")]
+layout_mode = 1
+scale = Vector2(-1, 1)
