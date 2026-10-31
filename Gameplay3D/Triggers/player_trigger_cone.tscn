@@ -11,7 +11,7 @@ material = ExtResource("1_ecdq0")
 top_radius = 0.0
 height = 1.0
 
-[node name="PlayerTrigger3D" type="Area3D" unique_id=1180047365]
+[node name="PlayerTriggerCone" type="Area3D" unique_id=1180047365]
 collision_layer = 4
 collision_mask = 2
 monitorable = false
