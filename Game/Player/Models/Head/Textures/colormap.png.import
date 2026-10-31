@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cctpyssx34kpf"
-path.s3tc="res://.godot/imported/colormap.png-7fc5066730595d54944269a24af9006f.s3tc.ctex"
+path.s3tc="res://.godot/imported/colormap.png-d63430509a47ddc081418703f1607f9b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Game/Player/Models/Textures/colormap.png"
-dest_files=["res://.godot/imported/colormap.png-7fc5066730595d54944269a24af9006f.s3tc.ctex"]
+source_file="res://Game/Player/Models/Head/Textures/colormap.png"
+dest_files=["res://.godot/imported/colormap.png-d63430509a47ddc081418703f1607f9b.s3tc.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://db6crphspdvmr" path="res://Game/Player/sib_character.gd" id="1_7hok2"]
 [ext_resource type="Script" uid="uid://csjccrhj5wnx7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_3d.gd" id="2_n3bv5"]
-[ext_resource type="ArrayMesh" uid="uid://d1iqelm102bcu" path="res://Game/Player/Models/pumpkin-carved.obj" id="2_rfo5s"]
+[ext_resource type="ArrayMesh" uid="uid://d1iqelm102bcu" path="res://Game/Player/Models/Head/pumpkin-carved.obj" id="2_rfo5s"]
 [ext_resource type="Script" uid="uid://8umksf8e80fw" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="3_rfo5s"]
 [ext_resource type="Script" uid="uid://bd046eokvcnu2" path="res://addons/phantom_camera/scripts/phantom_camera_host/phantom_camera_host.gd" id="4_buprq"]
 [ext_resource type="Script" uid="uid://d30urgsxk7met" path="res://Gameplay/Rhythm/player_rhythm_manager.gd" id="6_buprq"]
