@@ -1,0 +1,346 @@
+[gd_scene format=3 uid="uid://epevflspuwq8"]
+
+[ext_resource type="Script" uid="uid://b6r1jkuopyp8q" path="res://Game/stage.gd" id="1_g04al"]
+[ext_resource type="Script" uid="uid://qgw4do7de2fk" path="res://Gameplay/Rhythm/rhythm_track.gd" id="2_bpwo0"]
+[ext_resource type="BoxMesh" uid="uid://c3kjm45ao4elt" path="res://Game/Grid/normal_tile.tres" id="3_dll2a"]
+[ext_resource type="BoxMesh" uid="uid://dcgx4gnum5xrc" path="res://Game/Grid/goal_tile.tres" id="5_blqat"]
+[ext_resource type="ArrayMesh" uid="uid://d1su0wmpxq0gn" path="res://Game/Stages/3/wall-a-flat-window.obj" id="6_hwkkn"]
+[ext_resource type="ArrayMesh" uid="uid://bq8ov1e03213a" path="res://Game/Stages/3/wall-a-flat-garage.obj" id="6_v3lip"]
+[ext_resource type="ArrayMesh" uid="uid://coq6bssvwatxo" path="res://Game/Stages/3/wall-a-door.obj" id="7_4e1xl"]
+[ext_resource type="ArrayMesh" uid="uid://dbxhetox27qfw" path="res://Game/Stages/3/wall-a-flat-painted.obj" id="8_u3rfq"]
+
+[sub_resource type="Resource" id="Resource_anl8o"]
+script = ExtResource("2_bpwo0")
+BPM = 90.0
+metadata/_custom_type_script = "uid://qgw4do7de2fk"
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_hwkkn"]
+plane = Plane(1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_4e1xl"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_u3rfq"]
+plane = Plane(-1, 0, 0, 0)
+
+[node name="3School" type="Node3D" unique_id=424821647]
+script = ExtResource("1_g04al")
+track = SubResource("Resource_anl8o")
+
+[node name="Walls" type="Node3D" parent="." unique_id=1593451946]
+
+[node name="LeftWall" type="StaticBody3D" parent="Walls" unique_id=1816360100]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/LeftWall" unique_id=1897486219]
+shape = SubResource("WorldBoundaryShape3D_hwkkn")
+
+[node name="Ground" type="StaticBody3D" parent="Walls" unique_id=2128568072]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/Ground" unique_id=1820400518]
+shape = SubResource("WorldBoundaryShape3D_4e1xl")
+
+[node name="RightWall" type="StaticBody3D" parent="Walls" unique_id=2077389646]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls/RightWall" unique_id=272506787]
+shape = SubResource("WorldBoundaryShape3D_u3rfq")
+
+[node name="Floor" type="Node3D" parent="." unique_id=1656114590]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="Tile" type="MeshInstance3D" parent="Floor" unique_id=21934715]
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile2" type="MeshInstance3D" parent="Floor" unique_id=2147062110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile3" type="MeshInstance3D" parent="Floor" unique_id=405375877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, 0)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile4" type="MeshInstance3D" parent="Floor" unique_id=1103942894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile5" type="MeshInstance3D" parent="Floor" unique_id=1382833939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile6" type="MeshInstance3D" parent="Floor" unique_id=210163708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile7" type="MeshInstance3D" parent="Floor" unique_id=1242325095]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -4)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile8" type="MeshInstance3D" parent="Floor" unique_id=1643354106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -4)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile9" type="MeshInstance3D" parent="Floor" unique_id=1615860164]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -4)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile10" type="MeshInstance3D" parent="Floor" unique_id=86005657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -6)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile11" type="MeshInstance3D" parent="Floor" unique_id=8305476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -6)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile12" type="MeshInstance3D" parent="Floor" unique_id=423993036]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -6)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile13" type="MeshInstance3D" parent="Floor" unique_id=1610575114]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -8)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile14" type="MeshInstance3D" parent="Floor" unique_id=1566641981]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -8)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile15" type="MeshInstance3D" parent="Floor" unique_id=623884349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -8)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile16" type="MeshInstance3D" parent="Floor" unique_id=1516376124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile17" type="MeshInstance3D" parent="Floor" unique_id=611658562]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -10)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile18" type="MeshInstance3D" parent="Floor" unique_id=261442410]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -10)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile19" type="MeshInstance3D" parent="Floor" unique_id=2057951814]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -12)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile20" type="MeshInstance3D" parent="Floor" unique_id=464867371]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -12)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile21" type="MeshInstance3D" parent="Floor" unique_id=319614139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -12)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile22" type="MeshInstance3D" parent="Floor" unique_id=1008294830]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -14)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile23" type="MeshInstance3D" parent="Floor" unique_id=1772969918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -14)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile24" type="MeshInstance3D" parent="Floor" unique_id=1754981799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -14)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile25" type="MeshInstance3D" parent="Floor" unique_id=1844780774]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -16)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile26" type="MeshInstance3D" parent="Floor" unique_id=1064500529]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -16)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile27" type="MeshInstance3D" parent="Floor" unique_id=204453595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -16)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile28" type="MeshInstance3D" parent="Floor" unique_id=1659390212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -18)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile29" type="MeshInstance3D" parent="Floor" unique_id=2037155265]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -18)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile30" type="MeshInstance3D" parent="Floor" unique_id=715201637]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -18)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile34" type="MeshInstance3D" parent="Floor" unique_id=1348785502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -20)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile35" type="MeshInstance3D" parent="Floor" unique_id=66614777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -20)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile36" type="MeshInstance3D" parent="Floor" unique_id=842151193]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -20)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile37" type="MeshInstance3D" parent="Floor" unique_id=2107236674]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -22)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile38" type="MeshInstance3D" parent="Floor" unique_id=1164128067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -22)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile39" type="MeshInstance3D" parent="Floor" unique_id=547138488]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -22)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile40" type="MeshInstance3D" parent="Floor" unique_id=1251579997]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -24)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile41" type="MeshInstance3D" parent="Floor" unique_id=1691120427]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -24)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile42" type="MeshInstance3D" parent="Floor" unique_id=123656534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -24)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile43" type="MeshInstance3D" parent="Floor" unique_id=2118131793]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -26)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile44" type="MeshInstance3D" parent="Floor" unique_id=1220064567]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -26)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile45" type="MeshInstance3D" parent="Floor" unique_id=1633697844]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -26)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile46" type="MeshInstance3D" parent="Floor" unique_id=793955218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -28)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile47" type="MeshInstance3D" parent="Floor" unique_id=2131693256]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -28)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile48" type="MeshInstance3D" parent="Floor" unique_id=1439412752]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -28)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile52" type="MeshInstance3D" parent="Floor" unique_id=645156823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -32)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile53" type="MeshInstance3D" parent="Floor" unique_id=634181879]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -32)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile54" type="MeshInstance3D" parent="Floor" unique_id=598311105]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -32)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile55" type="MeshInstance3D" parent="Floor" unique_id=1198502515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -34)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile56" type="MeshInstance3D" parent="Floor" unique_id=1161848956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -34)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile57" type="MeshInstance3D" parent="Floor" unique_id=1492339341]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -34)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile58" type="MeshInstance3D" parent="Floor" unique_id=819750464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -36)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile59" type="MeshInstance3D" parent="Floor" unique_id=1564838287]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -36)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile60" type="MeshInstance3D" parent="Floor" unique_id=518732663]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -36)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile61" type="MeshInstance3D" parent="Floor" unique_id=1463446446]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -38)
+mesh = ExtResource("5_blqat")
+
+[node name="Tile62" type="MeshInstance3D" parent="Floor" unique_id=1093188705]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -38)
+mesh = ExtResource("5_blqat")
+
+[node name="Tile63" type="MeshInstance3D" parent="Floor" unique_id=1982713328]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -38)
+mesh = ExtResource("5_blqat")
+
+[node name="Tile49" type="MeshInstance3D" parent="Floor" unique_id=1382704776]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -30)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile50" type="MeshInstance3D" parent="Floor" unique_id=716596561]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -30)
+mesh = ExtResource("3_dll2a")
+
+[node name="Tile51" type="MeshInstance3D" parent="Floor" unique_id=1224291481]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -30)
+mesh = ExtResource("3_dll2a")
+
+[node name="School" type="Node3D" parent="." unique_id=1396212958]
+
+[node name="WallAFlatGarage" type="MeshInstance3D" parent="School" unique_id=1474984778]
+transform = Transform3D(-10, 0, 1.509958e-06, 0, 10, 0, -1.509958e-06, 0, -10, 0, 0, -45)
+mesh = ExtResource("6_v3lip")
+
+[node name="WallAFlatWindow" type="MeshInstance3D" parent="School" unique_id=1742206983]
+transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, -4, 0, -3)
+mesh = ExtResource("6_hwkkn")
+
+[node name="WallAFlatWindow2" type="MeshInstance3D" parent="School" unique_id=186505482]
+transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, -4, 0, -9)
+mesh = ExtResource("6_hwkkn")
+
+[node name="WallAFlatWindow3" type="MeshInstance3D" parent="School" unique_id=935446395]
+transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, -4, 0, -15)
+mesh = ExtResource("6_hwkkn")
+
+[node name="WallAFlatWindow4" type="MeshInstance3D" parent="School" unique_id=771230490]
+transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, -4, 0, -21)
+mesh = ExtResource("6_hwkkn")
+
+[node name="WallAFlatWindow7" type="MeshInstance3D" parent="School" unique_id=394237474]
+transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, -4, 0, -39)
+mesh = ExtResource("6_hwkkn")
+
+[node name="WallAFlatWindow5" type="MeshInstance3D" parent="School" unique_id=56798629]
+transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, -4, 0, -27)
+mesh = ExtResource("6_hwkkn")
+
+[node name="WallAFlatWindow6" type="MeshInstance3D" parent="School" unique_id=367047981]
+transform = Transform3D(-2.6226832e-07, 0, -6, 0, 6, 0, 6, 0, -2.6226832e-07, -4, 0, -33)
+mesh = ExtResource("6_hwkkn")
+
+[node name="WallADoor" type="MeshInstance3D" parent="School" unique_id=1740303750]
+transform = Transform3D(-3.704123e-07, 0, 8.474046, 0, 8.474046, 0, -8.474046, 0, -3.704123e-07, 7.6977224, 0, -8.869606)
+mesh = ExtResource("7_4e1xl")
+
+[node name="WallADoor2" type="MeshInstance3D" parent="School" unique_id=2060249808]
+transform = Transform3D(-3.704123e-07, 0, 8.474046, 0, 8.474046, 0, -8.474046, 0, -3.704123e-07, 7.5895243, 0, -31.947392)
+mesh = ExtResource("7_4e1xl")
+
+[node name="WallAFlatPainted" type="MeshInstance3D" parent="School" unique_id=1444764482]
+transform = Transform3D(-3.278354e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.278354e-07, 3.5, 0.65563774, -16.906504)
+mesh = ExtResource("8_u3rfq")
+
+[node name="WallAFlatPainted3" type="MeshInstance3D" parent="School" unique_id=1376834639]
+transform = Transform3D(-3.278354e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.278354e-07, 3.5, 0.65563774, -23.906504)
+mesh = ExtResource("8_u3rfq")
+
+[node name="WallAFlatPainted2" type="MeshInstance3D" parent="School" unique_id=372246587]
+transform = Transform3D(-3.278354e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.278354e-07, 3.5, 0.65563774, -0.9065037)
+mesh = ExtResource("8_u3rfq")
+
+[node name="WallAFlatPainted4" type="MeshInstance3D" parent="School" unique_id=691839098]
+transform = Transform3D(-3.278354e-07, 0, 7.5, 0, 7.5, 0, -7.5, 0, -3.278354e-07, 3.5, 0.65563774, -39.9065)
+mesh = ExtResource("8_u3rfq")
