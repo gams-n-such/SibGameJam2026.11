@@ -10,7 +10,6 @@ signal coward
 
 func _ready() -> void:
 	Game.player = self
-	Rhythm.start()
 
 func _exit_tree() -> void:
 	Game.player = null

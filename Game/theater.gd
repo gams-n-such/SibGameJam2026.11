@@ -25,13 +25,11 @@ func _ready() -> void:
 	Game.change_game_state(GameState.GAMEPLAY)
 	play()
 
-func _process(delta: float) -> void:
-	pass
-
 func play() -> void:
 	reset_player_position()
 	Game.player.detected.connect(_on_player_detected)
 	start_next_segment()
+	Rhythm.start()
 	while current_segment:
 		await current_segment.completed
 		if next_segment_idx < segments.size():
