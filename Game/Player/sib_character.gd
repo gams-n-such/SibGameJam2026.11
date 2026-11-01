@@ -75,7 +75,7 @@ func _move_and_turn(direction : Vector3, distance : float, duration : float, suc
 		tween.tween_property(self, "position:x", offset.x, duration).as_relative()
 		tween.tween_property(self, "position:z", offset.z, duration).as_relative()
 	if (-visuals_root.basis.z).dot(direction) < 0.9:
-		var new_yaw := (-basis.z).signed_angle_to(direction, Vector3.UP)
+		var new_yaw := (-visuals_root.basis.z).signed_angle_to(direction, Vector3.UP)
 		#var new_yaw := Basis.looking_at(direction, Vector3.UP).get_euler().y
 		tween.parallel().tween_property(visuals_root, "rotation:y", new_yaw, duration / 2.0).as_relative()
 		#global_rotation.y = new_yaw
