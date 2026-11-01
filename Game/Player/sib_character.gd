@@ -20,13 +20,13 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"move_forward"):
-		try_move(Vector3.FORWARD)
+		try_move(Vector3.FORWARD, wall_check_fwd)
 	elif event.is_action_pressed(&"move_backward"):
 		coward.emit()
 	elif event.is_action_pressed(&"move_left"):
-		try_move(Vector3.LEFT)
+		try_move(Vector3.LEFT, wall_check_left)
 	elif event.is_action_pressed(&"move_right"):
-		try_move(Vector3.RIGHT)
+		try_move(Vector3.RIGHT, wall_check_right)
 
 func on_detected() -> void:
 	detected.emit()
@@ -35,21 +35,21 @@ func on_detected() -> void:
 
 var _moving : bool = false
 
+@onready var wall_check_fwd: RayCast3D = %WallCheckFwd
+@onready var wall_check_left: RayCast3D = %WallCheckLeft
+@onready var wall_check_right: RayCast3D = %WallCheckRight
+
 @export var walk_distance : float = 1.0
 @export var hop_height : float = 0.5
 @export var default_move_duration : float = 0.2 
 
-func try_move(direction : Vector3) -> void:
+func try_move(direction : Vector3, wall_check : RayCast3D = null) -> void:
 	if _moving:
 		return
-	if can_move_to(position + direction * walk_distance):
+	if not wall_check or not wall_check.is_colliding():
 		_move_and_turn(direction, walk_distance, default_move_duration)
 	else:
 		_play_fail_anim(direction, default_move_duration)
-
-func can_move_to(point: Vector3) -> bool:
-	# TODO: implement
-	return true
 
 func _play_fail_anim(direction : Vector3, duration : float) -> void:
 	_move_and_turn(direction, 0.0, duration, false)

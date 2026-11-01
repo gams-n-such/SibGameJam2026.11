@@ -29,15 +29,22 @@ script = ExtResource("1_7hok2")
 walk_distance = 2.0
 hop_height = 0.3
 
+[node name="PlayerRhythmManager" type="Node" parent="." unique_id=1522643418]
+unique_name_in_owner = true
+script = ExtResource("6_buprq")
+metadata/_custom_type_script = "uid://d30urgsxk7met"
+
 [node name="Collision" type="CollisionShape3D" parent="." unique_id=921843927]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_tp06f")
 
-[node name="BodyPlaceholder" type="MeshInstance3D" parent="." unique_id=957182758]
+[node name="VisualsRoot" type="Node3D" parent="." unique_id=816673390]
+
+[node name="BodyPlaceholder" type="MeshInstance3D" parent="VisualsRoot" unique_id=957182758]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 mesh = SubResource("CylinderMesh_o463m")
 
-[node name="Head" type="MeshInstance3D" parent="." unique_id=163869349]
+[node name="Head" type="MeshInstance3D" parent="VisualsRoot" unique_id=163869349]
 transform = Transform3D(-1.7, 0, -1.4861872e-07, 0, 1.7, 0, 1.4861872e-07, 0, -1.7, 0, 0.9756496, 0)
 mesh = ExtResource("2_rfo5s")
 
@@ -65,7 +72,17 @@ script = ExtResource("4_buprq")
 interpolation_mode = 1
 metadata/_custom_type_script = "uid://bd046eokvcnu2"
 
-[node name="PlayerRhythmManager" type="Node" parent="." unique_id=1522643418]
+[node name="WallCheckers" type="Node3D" parent="." unique_id=2004013677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="WallCheckFwd" type="RayCast3D" parent="WallCheckers" unique_id=774247277]
 unique_name_in_owner = true
-script = ExtResource("6_buprq")
-metadata/_custom_type_script = "uid://d30urgsxk7met"
+target_position = Vector3(0, 0, -2.5)
+
+[node name="WallCheckLeft" type="RayCast3D" parent="WallCheckers" unique_id=1939955531]
+unique_name_in_owner = true
+target_position = Vector3(-2.5, 0, 0)
+
+[node name="WallCheckRight" type="RayCast3D" parent="WallCheckers" unique_id=734726960]
+unique_name_in_owner = true
+target_position = Vector3(2.5, 0, 0)
