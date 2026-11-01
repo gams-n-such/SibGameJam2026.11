@@ -8,7 +8,25 @@ script = ExtResource("2_jyiyk")
 BPM = 90.0
 metadata/_custom_type_script = "uid://qgw4do7de2fk"
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_iyj28"]
+plane = Plane(1, 0, 0, 0)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_tp06f"]
+plane = Plane(-1, 0, 0, 0)
+
 [node name="1Tutorial" type="Node3D" unique_id=424821647]
 script = ExtResource("1_iyj28")
 track = SubResource("Resource_anl8o")
 free_respawn = true
+
+[node name="LeftWall" type="StaticBody3D" parent="." unique_id=1062812053]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftWall" unique_id=1659833890]
+shape = SubResource("WorldBoundaryShape3D_iyj28")
+
+[node name="RightWall" type="StaticBody3D" parent="." unique_id=14516742]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightWall" unique_id=193961056]
+shape = SubResource("WorldBoundaryShape3D_tp06f")
