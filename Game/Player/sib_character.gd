@@ -17,7 +17,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed(&"move_forward"):
 		try_move(Vector3.FORWARD)
 	elif event.is_action_pressed(&"move_backward"):
-		try_move(Vector3.BACK)
+		#try_move(Vector3.BACK)
+		pass
 	elif event.is_action_pressed(&"move_left"):
 		try_move(Vector3.LEFT)
 	elif event.is_action_pressed(&"move_right"):
