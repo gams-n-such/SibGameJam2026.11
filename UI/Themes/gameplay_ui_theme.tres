@@ -1,4 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://b6nl1wes85bhi"]
 
+[ext_resource type="FontFile" uid="uid://coarr6ec7pjr0" path="res://UI/Themes/No Tears.ttf" id="1_8v0v4"]
+
 [resource]
-default_font_size = 16
+default_font = ExtResource("1_8v0v4")
+default_font_size = 40

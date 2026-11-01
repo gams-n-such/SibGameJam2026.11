@@ -1,6 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://cg4x0t0jwspjj"]
 
+[ext_resource type="FontFile" uid="uid://f0t82ijx5dia" path="res://UI/Themes/No Tears Bold.ttf" id="1_5oplg"]
+
 [resource]
+default_font = ExtResource("1_5oplg")
 default_font_size = 24
 Button/font_sizes/font_size = 32
 Label/font_sizes/font_size = 64
