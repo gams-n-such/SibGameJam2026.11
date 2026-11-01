@@ -1,4 +1,4 @@
-class_name NodeRhythmState
+class_name NodeRhythmTransform
 extends Resource
 
 

@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://d2l25wotvmh1x" path="res://Gameplay3D/Door/test_door_3d.tscn" id="11_7eh12"]
 [ext_resource type="PackedScene" uid="uid://ubt5nf6yq32d" path="res://Game/Player/sib_character.tscn" id="12_dfghf"]
 [ext_resource type="PackedScene" uid="uid://j4f2cau57w1s" path="res://Game/Cameras/sib_camera.tscn" id="13_4jmrd"]
-[ext_resource type="Script" uid="uid://cje87y2clswlt" path="res://Game/Cameras/node_rhythm_state.gd" id="14_t2aj3"]
+[ext_resource type="Script" uid="uid://cje87y2clswlt" path="res://Game/Cameras/node_rhythm_transform.gd" id="14_t2aj3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_fktsr"]
 sky_top_color = Color(0.23538089, 0.5855123, 0.7892152, 1)
@@ -135,8 +135,6 @@ text = "Door3D"
 
 [node name="SibCamera" parent="." unique_id=884310868 instance=ExtResource("13_4jmrd")]
 transform = Transform3D(-2.1855695e-07, 0, 1, 0, 1, 0, -1, 0, -2.1855695e-07, 2, 1, -6)
-first_beat = 0
-starting_state_idx = null
 states = Array[ExtResource("14_t2aj3")]([SubResource("Resource_k6ulc"), SubResource("Resource_bm13g"), SubResource("Resource_x4ihm"), SubResource("Resource_g3g77")])
 
 [connection signal="body_entered" from="PlatformingPlayerSpawner/PlayerTriggerSphere" to="PlatformingPlayerSpawner" method="respawn_player" unbinds=1]

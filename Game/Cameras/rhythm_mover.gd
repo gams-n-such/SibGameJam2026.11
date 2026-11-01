@@ -8,12 +8,12 @@ var _beat_signal : Signal:
 
 @export var first_beat : int = 0
 @export var starting_state_idx : int = 0
-@export var states : Array[NodeRhythmState]
+@export var states : Array[NodeRhythmTransform]
 var num_states : int:
 	get:
 		return states.size()
 var current_state_idx : int = 0
-var current_state : NodeRhythmState:
+var current_state : NodeRhythmTransform:
 	get:
 		if current_state_idx >= num_states:
 			return null
@@ -27,7 +27,7 @@ var beats_passed_in_state : int = 0
 @export_tool_button("Capture State") var _tool_snapshot := _make_snapshot
 
 func _make_snapshot() -> void:
-	var new_state := NodeRhythmState.new()
+	var new_state := NodeRhythmTransform.new()
 	new_state.position = position
 	new_state.rotation = rotation
 	new_state.scale = scale
@@ -43,7 +43,7 @@ func _ready() -> void:
 			skip_to_state(starting_state_idx)
 
 func _exit_tree() -> void:
-	if not Engine.is_editor_hint():
+	if not Engine.is_editor_hint() and _beat_signal:
 		_beat_signal.disconnect(_on_beat)
 
 
