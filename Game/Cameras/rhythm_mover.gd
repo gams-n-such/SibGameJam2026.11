@@ -38,9 +38,9 @@ func _make_snapshot() -> void:
 
 func _ready() -> void:
 	if not Engine.is_editor_hint():
-		assert(not states.is_empty())
-		_beat_signal.connect(_on_beat)
-		skip_to_state(starting_state_idx)
+		if not states.is_empty():
+			_beat_signal.connect(_on_beat)
+			skip_to_state(starting_state_idx)
 
 func _exit_tree() -> void:
 	if not Engine.is_editor_hint():
