@@ -29,7 +29,7 @@ func _reset_state() -> void:
 @onready var thumper: AudioStreamPlayer = %Thumper
 
 const DEFAULT_THUMPER_BPM : float = 120.0
-const THUMPER_START_OFFSET : float = 0.3
+const THUMPER_START_OFFSET : float = 0.1
 const SILENCE_DB : float = -40.0
 var current_thumper_bpm : float:
 	get:

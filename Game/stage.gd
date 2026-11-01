@@ -12,7 +12,8 @@ var bpm : float:
 		return track.BPM
 
 func _ready() -> void:
-	Rhythm.fade_in_thumper(5.0)
+	Rhythm.track = track
+	Rhythm.fade_in_thumper(4.0)
 
 func _process(delta: float) -> void:
 	pass

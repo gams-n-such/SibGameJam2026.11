@@ -60,7 +60,6 @@ func start_next_segment() -> void:
 		current_segment = current_segment_scene.instantiate() as SibStage
 		# TODO: move in
 		add_child(current_segment)
-		Rhythm.track = current_segment.track
 		Rhythm.restart()
 
 func play_victory() -> void:
