@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://c5usj2x1nlx2k"]
 
 [ext_resource type="Script" uid="uid://bal58g6j5k8bf" path="res://Gameplay3D/Triggers/collision_cone_3d.gd" id="1_4pmdp"]
-[ext_resource type="Material" uid="uid://d38f7bvc6enmu" path="res://Gameplay3D/Triggers/dev_player_trigger_material.tres" id="1_ecdq0"]
+[ext_resource type="Material" uid="uid://dmjkgpkpe6vj2" path="res://Gameplay3D/Triggers/sib_camera_trigger_material.tres" id="2_4pmdp"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4pmdp"]
 points = PackedVector3Array(0, 0, 0, 0, 0.5, -1, 0.19134173, 0.46193975, -1, 0.35355338, 0.35355338, -1, 0.46193975, 0.19134171, -1, 0.5, -2.1855694e-08, -1, 0.46193978, -0.1913417, -1, 0.35355338, -0.35355338, -1, 0.19134174, -0.46193975, -1, -4.371139e-08, -0.5, -1, -0.19134171, -0.46193975, -1, -0.35355335, -0.3535534, -1, -0.46193975, -0.19134179, -1, -0.5, 5.9624403e-09, -1, -0.46193972, 0.1913418, -1, -0.35355344, 0.35355332, -1, -0.19134171, 0.46193978, -1)
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_imfb5"]
-material = ExtResource("1_ecdq0")
+material = ExtResource("2_4pmdp")
 top_radius = 0.0
 height = 1.0
 
