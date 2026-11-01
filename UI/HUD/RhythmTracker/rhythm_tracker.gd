@@ -54,7 +54,8 @@ func _create_bars(num_bars : int) -> void:
 
 func _update_bar_position(bar : Control, target_beat : float, current_beat_override : float = -1.0) -> void:
 	var effective_current_beat := current_beat_override if current_beat_override >= 0.0 else current_beat
-	var target_x := target_line.size.x / 2.0
+	#var target_x := target_line.size.x / 2.0
+	var target_x := 0.0
 	bar.position.x = (target_beat - effective_current_beat) * offset_per_beat + target_x
 	if bar.position.x <= target_x:
 		requeue_deferred(bar)
