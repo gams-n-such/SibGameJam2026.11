@@ -15,7 +15,9 @@ mouse_filter = 2
 theme = ExtResource("1_te8l2")
 script = ExtResource("1_ia7gp")
 
-[node name="Label" type="Label" parent="." unique_id=962421740]
+[node name="CowardLabel" type="Label" parent="." unique_id=962421740]
+unique_name_in_owner = true
+visible = false
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -24,7 +26,9 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
-text = "HUD"
+text = "
+No turning back.
+You've made up your mind."
 horizontal_alignment = 1
 
 [node name="RhythmTracker" parent="." unique_id=229736804 instance=ExtResource("2_ing8j")]
