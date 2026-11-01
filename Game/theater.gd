@@ -64,4 +64,7 @@ func play_victory() -> void:
 	print("WON?")
 
 func _on_player_detected() -> void:
-	print("LOST")
+	if current_segment.free_respawn:
+		reset_player_position()
+	else:
+		print("LOST")
