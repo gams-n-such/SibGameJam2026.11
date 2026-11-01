@@ -24,6 +24,39 @@ func _reset_state() -> void:
 	music_player.seek(0.0)
 	rhythm_notifier._position = 0.0
 
+#region Jam
+
+@onready var thumper: AudioStreamPlayer = %Thumper
+
+const DEFAULT_THUMPER_BPM : float = 120.0
+const THUMPER_START_OFFSET : float = 0.3
+const SILENCE_DB : float = -40.0
+var current_thumper_bpm : float:
+	get:
+		return thumper.pitch_scale * DEFAULT_THUMPER_BPM
+
+func fade_in_thumper(duration : float = 1.0) -> void:
+	set_thumper_bpm(track.BPM)
+	thumper.volume_db = SILENCE_DB
+	thumper.play(THUMPER_START_OFFSET)
+	var tween := get_tree().create_tween().bind_node(self)
+	tween.tween_property(thumper, "volume_db", 0.0, duration)
+
+func set_thumper_bpm(new_bpm: float) -> void:
+	thumper.pitch_scale = new_bpm / DEFAULT_THUMPER_BPM
+
+const TWEEN_PITCH : bool = false
+
+func tween_thumper_bpm(new_bpm: float, duration : float = 1.0) -> void:
+	var tween := get_tree().create_tween().bind_node(self)
+	if TWEEN_PITCH:
+		tween.tween_property(thumper, "pitch_scale", new_bpm / DEFAULT_THUMPER_BPM, duration)
+	else:
+		tween.tween_method(set_thumper_bpm, current_thumper_bpm, new_bpm / DEFAULT_THUMPER_BPM, duration)
+
+#endregion
+
+
 #region Rhythm
 
 @export_category("Rhythm")

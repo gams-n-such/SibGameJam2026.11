@@ -27,7 +27,7 @@ func _process(delta: float) -> void:
 func play() -> void:
 	reset_player_position()
 	start_next_segment()
-
+	Rhythm.fade_in_thumper(5.0)
 
 func reset_player_position() -> void:
 	if player._moving:
