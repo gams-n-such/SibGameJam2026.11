@@ -22,7 +22,7 @@ func _on_beat_ended(beat_number : int) -> void:
 
 func try_consume_beat() -> bool:
 	var current_beat : int = Rhythm.get_current_beat_number()
-	if Game._ignore_rhythm:
+	if Game.config.ignore_rhythm:
 		last_consumed_beat = current_beat
 		beat_hit.emit(last_consumed_beat)
 		return true
@@ -36,4 +36,5 @@ func try_consume_beat() -> bool:
 		return false
 	last_consumed_beat = current_beat
 	print("Player beat hit at %d (%.3f)" % [current_beat, Rhythm.current_gameplay_beat])
+	beat_hit.emit(last_consumed_beat)
 	return true

@@ -49,6 +49,8 @@ func _play_fail_anim(direction : Vector3, duration : float) -> void:
 func _move_and_turn(direction : Vector3, distance : float, duration : float, success : bool = true) -> void:
 	if _moving:
 		return
+	if not rhythm_handler.try_consume_beat():
+		return
 	_moving = true
 	
 	var hop_tween = get_tree().create_tween().bind_node(self)

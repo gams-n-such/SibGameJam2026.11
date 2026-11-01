@@ -96,6 +96,6 @@ func _requeue(bar : Control, update : bool = false) -> void:
 	#print("Queueing beat %d" % last_queued_beat)
 	queue.append(bar)
 	beats.set(bar, last_queued_beat + beat_window)
-	#(bar.get_node("BeatLabel") as Label).text = str(last_queued_beat)
+	(bar.get_node("BeatLabel") as Label).text = str(last_queued_beat)
 	if update:
 		_update_bar_position(bar, beats[bar])

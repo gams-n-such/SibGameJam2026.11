@@ -10,3 +10,5 @@ var player_move_seconds : float:
 var object_move_seconds : float:
 	get:
 		return Rhythm.beat_duration * object_move_beats
+
+@export var ignore_rhythm : bool = false
