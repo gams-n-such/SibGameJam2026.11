@@ -2,27 +2,34 @@
 
 [ext_resource type="Script" uid="uid://q8koj3dhwbp5" path="res://Game/Cameras/rhythm_mover.gd" id="1_a2y1q"]
 [ext_resource type="PackedScene" uid="uid://c5usj2x1nlx2k" path="res://Gameplay3D/Triggers/player_trigger_cone.tscn" id="1_pk4m3"]
+[ext_resource type="PackedScene" uid="uid://bah0knavxv1xi" path="res://Game/Cameras/sib_camera_mesh.tscn" id="2_a2y1q"]
+[ext_resource type="Material" uid="uid://d38f7bvc6enmu" path="res://Gameplay3D/Triggers/dev_player_trigger_material.tres" id="4_qsm1v"]
 
-[sub_resource type="GDScript" id="GDScript_a2y1q"]
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ptfjp"]
+points = PackedVector3Array(0, 0, 0, 0, 0.5, -5, 0.19134173, 0.46193975, -5, 0.35355338, 0.35355338, -5, 0.46193975, 0.19134171, -5, 0.5, -2.1855694e-08, -5, 0.46193978, -0.1913417, -5, 0.35355338, -0.35355338, -5, 0.19134174, -0.46193975, -5, -4.371139e-08, -0.5, -5, -0.19134171, -0.46193975, -5, -0.35355335, -0.3535534, -5, -0.46193975, -0.19134179, -5, -0.5, 5.9624403e-09, -5, -0.46193972, 0.1913418, -5, -0.35355344, 0.35355332, -5, -0.19134171, 0.46193978, -5)
 
-[sub_resource type="Resource" id="Resource_a2y1q"]
-script = SubResource("GDScript_a2y1q")
-beats_duration = 1
-position = Vector3(0, 5, 0)
-rotation = Vector3(0, 0, 0)
-scale = Vector3(1, 1, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_c2axk"]
-size = Vector3(0.25, 0.25, 0.5)
+[sub_resource type="CylinderMesh" id="CylinderMesh_vr8x5"]
+material = ExtResource("4_qsm1v")
+top_radius = 0.0
+height = 5.0
+radial_segments = 16
 
 [node name="SibCamera" type="Node3D" unique_id=884310868]
 script = ExtResource("1_a2y1q")
-first_beat = null
-states = Array[SubResource("GDScript_a2y1q")]([SubResource("Resource_a2y1q")])
 
 [node name="Pivot" type="Node3D" parent="." unique_id=393793507]
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=851244445]
-mesh = SubResource("BoxMesh_c2axk")
+[node name="SibCameraMesh" parent="Pivot" unique_id=1855372650 instance=ExtResource("2_a2y1q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15731311, 0.121976435, -0.012314267)
 
-[node name="PlayerTrigger3D" parent="Pivot/MeshInstance3D" unique_id=1180047365 instance=ExtResource("1_pk4m3")]
+[node name="PlayerTriggerCone" parent="Pivot/SibCameraMesh" unique_id=1180047365 instance=ExtResource("1_pk4m3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.028001055, -0.56978196)
+
+[node name="CollisionShape3D" parent="Pivot/SibCameraMesh/PlayerTriggerCone" index="0" unique_id=1022753267]
+shape = SubResource("ConvexPolygonShape3D_ptfjp")
+length = 5.0
+
+[node name="MeshInstance3D" parent="Pivot/SibCameraMesh/PlayerTriggerCone" index="1" unique_id=1779909377]
+mesh = SubResource("CylinderMesh_vr8x5")
+
+[editable path="Pivot/SibCameraMesh/PlayerTriggerCone"]

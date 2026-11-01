@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bah0knavxv1xi"]
+
+[ext_resource type="ArrayMesh" uid="uid://bjuk6r85mtoj8" path="res://Game/Cameras/camera_cover_mesh.tres" id="1_gx57b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l8kom"]
+albedo_color = Color(0.796243, 0.796243, 0.796243, 1)
+metallic = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_biaub"]
+material = SubResource("StandardMaterial3D_l8kom")
+size = Vector3(0.3, 0.27, 0.659)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx57b"]
+albedo_color = Color(0.017832017, 1.8229522e-06, 0.15451777, 1)
+metallic = 1.0
+metallic_specular = 0.0
+roughness = 0.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_ib5c1"]
+material = SubResource("StandardMaterial3D_gx57b")
+top_radius = 0.07421875
+bottom_radius = 0.07421875
+height = 0.1569519
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ijho1"]
+albedo_color = Color(1, 0, 0, 1)
+roughness = 0.0
+emission_enabled = true
+emission = Color(0.98274976, 6.08854e-06, 1.540184e-06, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_kdgfa"]
+material = SubResource("StandardMaterial3D_ijho1")
+radius = 0.1
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tp06f"]
+metallic = 0.5
+
+[node name="SibCameraMesh" type="Node3D" unique_id=1855372650]
+
+[node name="Body" type="MeshInstance3D" parent="." unique_id=354453440]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.014453128, -0.11097524)
+mesh = SubResource("BoxMesh_biaub")
+
+[node name="Shaft" type="MeshInstance3D" parent="." unique_id=1309336276]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.029243547, -0.49607977)
+mesh = SubResource("CylinderMesh_ib5c1")
+
+[node name="Light" type="MeshInstance3D" parent="." unique_id=835039286]
+transform = Transform3D(0.17584719, 0, 0, 0, 0.17584719, 0, 0, 0, 0.17584719, 0.10491343, -0.0697424, -0.44888023)
+mesh = SubResource("SphereMesh_kdgfa")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=1685182498]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+visible = false
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=272289074]
+transform = Transform3D(0.99464506, 0, 0, 0, 0.99464506, 0, 0, 0, 0.99464506, 0, 0.055851653, 0.2790458)
+size = Vector3(0.32128906, 0.21386719, 0.58514404)
+material = SubResource("StandardMaterial3D_tp06f")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=766264317]
+transform = Transform3D(0.99464506, 0, 0, 0, 0.99464506, 0, 0, 0, 0.99464506, 0, 0.034785867, 0.26624393)
+operation = 2
+size = Vector3(0.2998047, 0.22167969, 0.6108856)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=217451367]
+transform = Transform3D(0.9946451, 0, 0, 0, 0.8321515, -0.54483294, 0, 0.54483294, 0.8321515, 0, -0.014352478, 0.5256513)
+operation = 2
+size = Vector3(0.3408203, 0.43345642, 0.12278366)
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="." unique_id=1303392437]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0.0017177165)
+mesh = ExtResource("1_gx57b")
