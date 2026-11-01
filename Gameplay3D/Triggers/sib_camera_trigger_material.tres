@@ -2,4 +2,5 @@
 
 [resource]
 transparency = 1
+shading_mode = 0
 albedo_color = Color(0.9411765, 0.6745098, 0, 0.43137255)
