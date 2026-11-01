@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bqekikpkdbtkt"]
+
+[ext_resource type="Script" uid="uid://b6r1jkuopyp8q" path="res://Game/stage.gd" id="1_gn4p1"]
+[ext_resource type="Script" uid="uid://qgw4do7de2fk" path="res://Gameplay/Rhythm/rhythm_track.gd" id="2_73yl4"]
+
+[sub_resource type="Resource" id="Resource_anl8o"]
+script = ExtResource("2_73yl4")
+BPM = 90.0
+metadata/_custom_type_script = "uid://qgw4do7de2fk"
+
+[node name="1Tutorial" type="Node3D" unique_id=424821647]
+script = ExtResource("1_gn4p1")
+track = SubResource("Resource_anl8o")

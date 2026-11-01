@@ -1,20 +1,22 @@
-class_name SibSegment
+class_name SibStage
 extends Node3D
 
-signal segment_completed
+signal completed
 
 @export var track : RhythmTrack
+
+@export var free_respawn : bool = false
 
 var bpm : float:
 	get:
 		return track.BPM
 
 func _ready() -> void:
-	pass # Replace with function body.
+	Rhythm.fade_in_thumper(5.0)
 
 func _process(delta: float) -> void:
 	pass
 
 
 func _on_player_entered_final_trigger(player : Node3D) -> void:
-	segment_completed.emit()
+	completed.emit()

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://daiu1sevramuw"]
 
 [ext_resource type="Script" uid="uid://cgvfwwh5c5uvg" path="res://Game/theater.gd" id="1_c0dmd"]
-[ext_resource type="PackedScene" uid="uid://rothu8g0pvq2" path="res://Game/Segments/1s_tutorial.tscn" id="2_4om7a"]
+[ext_resource type="PackedScene" uid="uid://rothu8g0pvq2" path="res://Game/Stages/1s_tutorial.tscn" id="2_4om7a"]
 [ext_resource type="PackedScene" uid="uid://ubt5nf6yq32d" path="res://Game/Player/sib_character.tscn" id="3_l8kom"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l8kom"]

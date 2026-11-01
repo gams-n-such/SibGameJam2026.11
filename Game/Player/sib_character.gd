@@ -2,8 +2,9 @@ class_name SibCharacter
 extends AnimatableBody3D
 
 signal move_finished
-signal coward
+signal detected
 
+signal coward
 
 @onready var rhythm_handler: PlayerRhythmManager = %PlayerRhythmManager
 
@@ -26,6 +27,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		try_move(Vector3.LEFT)
 	elif event.is_action_pressed(&"move_right"):
 		try_move(Vector3.RIGHT)
+
+func on_detected() -> void:
+	detected.emit()
 
 #region Movement
 
