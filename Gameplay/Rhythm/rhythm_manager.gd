@@ -35,12 +35,17 @@ var current_thumper_bpm : float:
 	get:
 		return thumper.pitch_scale * DEFAULT_THUMPER_BPM
 
-func fade_in_thumper(duration : float = 1.0) -> void:
+func thumper_fade_in(duration : float = 1.0) -> void:
 	set_thumper_bpm(track.BPM)
 	thumper.volume_db = SILENCE_DB
 	thumper.play(THUMPER_START_OFFSET)
 	var tween := get_tree().create_tween().bind_node(self)
 	tween.tween_property(thumper, "volume_db", 0.0, duration)
+
+func thumper_fade_out(duration : float = 1.0) -> void:
+	var tween := get_tree().create_tween().bind_node(self)
+	tween.tween_property(thumper, "volume_db", SILENCE_DB, duration)
+	thumper.stop()
 
 func set_thumper_bpm(new_bpm: float) -> void:
 	thumper.pitch_scale = new_bpm / DEFAULT_THUMPER_BPM

@@ -13,10 +13,12 @@ var bpm : float:
 
 func _ready() -> void:
 	Rhythm.track = track
-	Rhythm.fade_in_thumper(4.0)
+	Rhythm.thumper_fade_in(4.0)
 
 func _process(delta: float) -> void:
 	pass
+
+
 
 
 func _on_player_entered_final_trigger(player : Node3D) -> void:
