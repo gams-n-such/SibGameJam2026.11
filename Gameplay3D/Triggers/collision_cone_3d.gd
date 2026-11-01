@@ -28,3 +28,4 @@ func _rebuild_cone() -> void:
 		new_mesh.radial_segments = sides
 		new_mesh.material = old_mesh.surface_get_material(0)
 		mesh_node.mesh = new_mesh
+		mesh_node.position = Vector3.FORWARD * length / 2.0
