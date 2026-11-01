@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://ubt5nf6yq32d" path="res://Game/Player/sib_character.tscn" id="3_l8kom"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_l8kom"]
-sky_top_color = Color(0.3315422, 8.483045e-05, 0.33757767, 1)
-sky_horizon_color = Color(0.6246835, 0, 0.0412324, 1)
+sky_top_color = Color(0.03137255, 0, 0.03137255, 1)
+sky_horizon_color = Color(0.3315422, 8.483045e-05, 0.33757767, 1)
 ground_bottom_color = Color(0.03137255, 0, 0.03137255, 1)
-ground_horizon_color = Color(0, 0.35418084, 0.08339094, 1)
+ground_horizon_color = Color(0.3315422, 8.483045e-05, 0.33757767, 1)
 
 [sub_resource type="Sky" id="Sky_hv080"]
 sky_material = SubResource("ProceduralSkyMaterial_l8kom")
@@ -16,6 +16,8 @@ sky_material = SubResource("ProceduralSkyMaterial_l8kom")
 [sub_resource type="Environment" id="Environment_d7pig"]
 background_mode = 2
 sky = SubResource("Sky_hv080")
+ambient_light_source = 2
+ambient_light_color = Color(0.54651237, 0.1997163, 3.3691526e-07, 1)
 reflected_light_source = 2
 
 [node name="Theater" type="Node3D" unique_id=1532741774]
@@ -24,6 +26,7 @@ segments = Array[PackedScene]([ExtResource("2_4om7a")])
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1790649852]
 transform = Transform3D(0.7071068, -0.61237246, 0.35355335, 0, 0.49999997, 0.86602545, -0.7071068, -0.61237246, 0.35355335, 0, 12, 0)
+sky_mode = 1
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=279057484]
 environment = SubResource("Environment_d7pig")
