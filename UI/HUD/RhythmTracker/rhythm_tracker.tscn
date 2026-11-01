@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cif2t6fk1pl0j" path="res://UI/HUD/RhythmTracker/rhythm_tracker.gd" id="1_1j67k"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_1j67k"]
+color = Color(1, 1, 1, 1)
 thickness = 5
+vertical = true
 
 [node name="RhythmTracker" type="Control" unique_id=229736804]
 layout_mode = 3
@@ -42,18 +44,17 @@ offset_bottom = 100.0
 grow_horizontal = 2
 
 [node name="Line" type="Panel" parent="TargetLine/BeatBar" unique_id=1422967299]
-custom_minimum_size = Vector2(100, 0)
+custom_minimum_size = Vector2(0, 100)
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_right = 100.0
-offset_bottom = 40.00009
+offset_bottom = 100.0
 grow_horizontal = 2
-rotation = 1.5707964
 theme_override_styles/panel = SubResource("StyleBoxLine_1j67k")
 
 [node name="BeatLabel" type="Label" parent="TargetLine/BeatBar" unique_id=515819522]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
