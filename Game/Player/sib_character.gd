@@ -41,7 +41,9 @@ var _moving : bool = false
 
 @export var walk_distance : float = 1.0
 @export var hop_height : float = 0.5
-@export var default_move_duration : float = 0.2 
+@export var default_move_duration : float = 0.2
+
+@onready var visuals_root: Node3D = %VisualsRoot
 
 func try_move(direction : Vector3, wall_check : RayCast3D = null) -> void:
 	if _moving:
@@ -63,8 +65,8 @@ func _move_and_turn(direction : Vector3, distance : float, duration : float, suc
 	
 	var hop_tween = get_tree().create_tween().bind_node(self)
 	const HOP_TRANS = Tween.TRANS_QUART
-	hop_tween.tween_property(self, "position:y", hop_height, duration / 2.0).as_relative().set_trans(HOP_TRANS).set_ease(Tween.EASE_OUT)
-	hop_tween.tween_property(self, "position:y", -hop_height, duration / 2.0).as_relative().set_trans(HOP_TRANS).set_ease(Tween.EASE_IN)
+	hop_tween.tween_property(visuals_root, "position:y", hop_height, duration / 2.0).as_relative().set_trans(HOP_TRANS).set_ease(Tween.EASE_OUT)
+	hop_tween.tween_property(visuals_root, "position:y", -hop_height, duration / 2.0).as_relative().set_trans(HOP_TRANS).set_ease(Tween.EASE_IN)
 	
 	var tween = get_tree().create_tween().bind_node(self)
 	tween.set_parallel()
@@ -73,10 +75,10 @@ func _move_and_turn(direction : Vector3, distance : float, duration : float, suc
 		var offset := direction.normalized() * distance
 		tween.tween_property(self, "position:x", offset.x, duration).as_relative()
 		tween.tween_property(self, "position:z", offset.z, duration).as_relative()
-	if (-basis.z).dot(direction) < 0.9:
+	if (-visuals_root.basis.z).dot(direction) < 0.9:
 		var new_yaw := (-basis.z).signed_angle_to(direction, Vector3.UP)
 		#var new_yaw := Basis.looking_at(direction, Vector3.UP).get_euler().y
-		tween.parallel().tween_property(self, "rotation:y", new_yaw, duration / 2.0).as_relative()
+		tween.parallel().tween_property(visuals_root, "rotation:y", new_yaw, duration / 2.0).as_relative()
 		#global_rotation.y = new_yaw
 	await tween.finished
 	_moving = false

@@ -39,6 +39,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("SphereShape3D_tp06f")
 
 [node name="VisualsRoot" type="Node3D" parent="." unique_id=816673390]
+unique_name_in_owner = true
 
 [node name="BodyPlaceholder" type="MeshInstance3D" parent="VisualsRoot" unique_id=957182758]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
