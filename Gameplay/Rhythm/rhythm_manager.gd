@@ -112,6 +112,10 @@ var current_gameplay_beat : float:
 func get_current_beat_number() -> int:
 	return int(floorf(current_gameplay_beat))
 
+func restart() -> void:
+	stop()
+	start()
+
 func start() -> void:
 	if playing:
 		return

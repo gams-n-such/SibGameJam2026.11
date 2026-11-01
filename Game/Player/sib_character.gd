@@ -1,6 +1,8 @@
 class_name SibCharacter
 extends AnimatableBody3D
 
+signal move_finished
+
 @onready var rhythm_handler: PlayerRhythmManager = %PlayerRhythmManager
 
 func _ready() -> void:
@@ -73,5 +75,6 @@ func _move_and_turn(direction : Vector3, distance : float, duration : float, suc
 		#global_rotation.y = new_yaw
 	await tween.finished
 	_moving = false
+	move_finished.emit()
 
 #endregion

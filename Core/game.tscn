@@ -5,6 +5,7 @@
 [ext_resource type="Resource" uid="uid://bk4w031c0lk4r" path="res://Core/default_game_config.tres" id="2_qe6tj"]
 [ext_resource type="PackedScene" uid="uid://be8iqphg5okyn" path="res://UI/CanvasManager/canvas_manager.tscn" id="2_xt2r0"]
 [ext_resource type="PackedScene" uid="uid://uij46cficj03" path="res://UI/PauseMenu/pause_menu.tscn" id="3_52drc"]
+[ext_resource type="PackedScene" uid="uid://daiu1sevramuw" path="res://Game/theater.tscn" id="4_3yptt"]
 [ext_resource type="PackedScene" uid="uid://mbpwhjgv7obw" path="res://UI/GameOver/game_over_screen.tscn" id="4_jcax3"]
 [ext_resource type="Script" uid="uid://cf7i1a3dh3at4" path="res://UI/Web/web_mouse_captor.gd" id="5_gwpo4"]
 [ext_resource type="Script" uid="uid://cmo5n6t4g2sel" path="res://Gameplay/StateMachine/state_machine.gd" id="5_lqrbg"]
@@ -19,6 +20,7 @@ process_mode = 3
 script = ExtResource("1_t3eon")
 config = ExtResource("2_qe6tj")
 title_scene = ExtResource("2_htkch")
+gameplay_scene = ExtResource("4_3yptt")
 pause_menu_scene = ExtResource("3_52drc")
 game_over_scene = ExtResource("4_jcax3")
 default_camera_layers = 1

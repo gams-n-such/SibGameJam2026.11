@@ -19,6 +19,8 @@ func toggle_mouse_cursor() -> void:
 
 var player : SibCharacter = null
 
+var last_segment_reached : int = 0
+
 #endregion
 
 #region Config
